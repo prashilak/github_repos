@@ -31,9 +31,6 @@ const RepoList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const perPageCount = 10;
 
-
-
-
     // set current page change
     const currentPageChange = useCallback((page:number)=>{
         setCurrentPage(page)
