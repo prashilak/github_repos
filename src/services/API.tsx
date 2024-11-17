@@ -2,7 +2,7 @@ import axios from "axios";
 
 // this is interceptor file you can customize the header here.
 // base url
-const BASE_URL  = import.meta.env.VITE_BASE_URL;
+const BASE_URL  = process.env.VITE_BASE_URL;
 
 
 const API = axios.create({

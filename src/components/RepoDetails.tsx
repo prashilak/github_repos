@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Link, useParams } from "react-router-dom";
 import { REPO_DETAILS } from "../services/constants";
 import useFetchData from "../services/useFetchData";
@@ -9,9 +10,9 @@ interface RepoDetails {
     description: string;
     html_url: string;
     language: string;
-    forks_count: number;
-    open_issues_count: number;
-    watchers_count: number;
+    forks: number;
+    open_issues: number;
+    watchers: number;
   }
 
 
@@ -22,36 +23,36 @@ interface RepoDetails {
 
   const RepoDetails = () => {
     const { name } = useParams();
-    const {data, isLoading, error } = useFetchData(REPO_DETAILS+name);
+    const {data, isLoading, error } = useFetchData<RepoDetails>(REPO_DETAILS+name);
 
 
     if(isLoading){
         return <div className='fixed inset-0 flex items-center justify-center'><ReactLoading type={'spokes'} color={'#0EA5E9'} height={30} width={30} /> <span className='text-sm md:text-base ml-4'> Loading...</span>  </div>
     }
-    // if(error){
-    //     return <div>Error : {error}</div>
-    // }
+    if(error){
+        return <div>Error : {error}</div>
+    }
 
   return (
     <div className="p-4">
         <div className="flex row items-center justify-between border-b py-2">
             <div>
-                <h1 className="text-2xl font-bold text-sky-500">{data.name}</h1>
-                <p className="text-sm text-gray-500">{data.description}</p>
+                <h1 className="text-2xl font-bold text-sky-500">{data?.name}</h1>
+                <p className="text-sm text-gray-500">{data?.description}</p>
             </div>
-        <Link to={data?.html_url} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-            Visit Repo
-        </Link>
+            <Link to={data?.html_url} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                Visit Repo
+            </Link>
         </div>
 
       <ul className="mt-4">
-        <li><strong>Language:</strong> {data.language || 'Not specified'}</li>
-        <li><strong>Forks:</strong> {data.forks}</li>
-        <li><strong>Open Issues:</strong> {data.open_issues}</li>
-        <li><strong>Watchers:</strong> {data.watchers}</li>
+        <li><strong>Language:</strong> {data?.language || 'Not specified'}</li>
+        <li><strong>Forks:</strong> {data?.forks}</li>
+        <li><strong>Open Issues:</strong> {data?.open_issues}</li>
+        <li><strong>Watchers:</strong> {data?.watchers}</li>
       </ul>
     </div>
   )
 }
 
-export default RepoDetails
+export default React.memo(RepoDetails)

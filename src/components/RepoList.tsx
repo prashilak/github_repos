@@ -1,10 +1,21 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import * as React from "react";
+import { useCallback, useMemo, useState } from 'react'
 import useFetchData from '../services/useFetchData';
 import { GODADDY_REPO } from '../services/constants';
 import ReactLoading from 'react-loading';
 import ListItem from './ListItem';
 import Pagination from './Pagination';
 import SearchBox from './SearchBox';
+
+
+interface DataObject{
+    id:number,
+    name:string,
+    private:boolean,
+    description:string,
+    language:string,
+    updated_at:string
+}
 
 
 /**
@@ -15,7 +26,7 @@ import SearchBox from './SearchBox';
 const RepoList = () => {
 
     //useFetchData is a custome hook to build for handle asynchronous task it accepts the path.
-    const {data, isLoading, error } = useFetchData(GODADDY_REPO);
+    const {data, isLoading, error } = useFetchData<DataObject[]>(GODADDY_REPO);
     const [searchTerm,setSearchTerm] =useState('')
     const [currentPage, setCurrentPage] = useState(1);
     const perPageCount = 10;
@@ -36,7 +47,7 @@ const RepoList = () => {
 
     // filter data according to the search term and return
     const filterData = useMemo(()=>{
-            return data.filter((repo:any)=> repo.name.toLowerCase().includes(searchTerm))
+            return data ? data.filter((repo:any)=> repo.name.toLowerCase().includes(searchTerm)): []
     },[data, searchTerm]);
 
     // handle pagination on data , trim data according perpage count

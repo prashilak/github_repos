@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import * as React from "react";
+import { useEffect, useState } from 'react'
 import API from './API';
 
 
-interface FetchData{
-    data : [],
+interface FetchData<T>{
+    data : T|null,
     isLoading: boolean,
     error : null
   }
@@ -13,8 +14,8 @@ interface FetchData{
    * @param GODADDY_REPO node url
    * @returns data, loading state , error
    */
-const useFetchData = (GODADDY_REPO:string):FetchData => {
-    const [data,setData] = useState<any|[]>([]);
+const useFetchData = <T,>(GODADDY_REPO:string):FetchData<T> => {
+    const [data,setData] = useState<T|null>(null);
     const [isLoading, setIsLoading] =useState(false);
     const [error, setError]= useState(null);
 

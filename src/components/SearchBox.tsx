@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 
 /**
  *
  * @param searchTerm is a search value
- * @param onSearchHandle it handle to set searchterm 
+ * @param onSearchHandle it handle to set searchterm
  * @returns
  */
 const SearchBox = ({searchTerm,onSearchHandle}) => {
