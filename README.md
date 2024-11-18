@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# Github Repositories Viewer
+A React application that fetches repositories data and displays information about repositories from the GitHub API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+Fetches GitHub repository data using the GitHub API
+Displays repositories in a paginated list (10 per page).
+Search functionality to find repositories by name.
+Detailed view for each repository, including
+  -Name
+  -Description
+  -Language
+  -Forks
+  -Open issues
+  -Watchers
+  -Link to GitHub page.
 
-Currently, two official plugins are available:
+## Tech Stack
+ React Js (Vite), Typescript, Tailwind Css
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ## Installation
+  git clone https://github.com/prashilak/github_repos.git
+  cd github_repos
+  npm install
+  npm run dev
 
-## Expanding the ESLint configuration
+  Open your browser and navigate to http://localhost:3000
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  Check .env file if it not available then create it
+  with VITE_BASE_URL = 'https://api.github.com/'
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  ## Testing
+  We add some test cases for files like RepoList, ListItem, RepoDetails.
+  to run test cases npm run test and check code coverage in coverage folder in
+  root directory.

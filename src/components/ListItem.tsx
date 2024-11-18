@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import * as moment from 'moment'
+// import * as moment from 'moment'
 
 
 
@@ -33,7 +33,7 @@ const ListItem = ({data}) => {
           <div className='text-xs text-gray-500'>{repo?.description||''}</div>
           <div className='flex mt-2'>
               <div className='text-xs text-white px-2  w-fit rounded-lg border bg-green-600 '>{repo.language} </div>
-              <span className='text-xs text-gray-500 ml-2'>Updated on {moment(repo?.updated_at).format('MMM DD, YYYY')}</span>
+              {/* <span className='text-xs text-gray-500 ml-2'>Updated on {moment(repo?.updated_at).format('MMM DD, YYYY')}</span> */}
           </div>
       </Link>
    </li>)))
