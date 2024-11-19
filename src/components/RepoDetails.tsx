@@ -39,10 +39,11 @@ interface RepoDetails {
             <div>
                 <h1 className="text-2xl font-bold text-sky-500">{data?.name}</h1>
                 <p className="text-sm text-gray-500">{data?.description}</p>
+                <Link to={data?.html_url} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                   Visit Repository
+                 </Link>
             </div>
-            <Link to={data?.html_url} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-                Visit Repo
-            </Link>
+
         </div>
 
       <ul className="mt-4">
