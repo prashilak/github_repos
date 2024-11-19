@@ -7,9 +7,9 @@ import * as React from 'react'
  * @param handlePageChange  set the current page
  * @returns
  */
-const Pagination = ({currentPage,totalPages, handlePageChange}) => {
+const Pagination = ({data,currentPage,totalPages, handlePageChange}) => {
 
-    if(totalPages === 0){
+  if(data.length === 0){
         return null
     }
 

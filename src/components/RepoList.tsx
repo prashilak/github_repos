@@ -75,6 +75,7 @@ const RepoList = () => {
         <div className='border-b  my-5' />
         <ListItem data={handlePagination}/>
         <Pagination
+           data={handlePagination}
            currentPage={currentPage}
            totalPages={totalPage}
            handlePageChange={currentPageChange}

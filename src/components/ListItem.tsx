@@ -22,7 +22,7 @@ const ListItem = ({data}) => {
 
     // handle empty data error
     if(data.length === 0){
-        return(<div className='flex justify-center items-center text-sm text-slate-800'>no repo created yet...</div>)
+        return(<div className='flex justify-center items-center text-sm text-slate-800'>no repo created/found...</div>)
     }
 
   return (data?.map((repo:DataObject)=>(
